@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 96%;
+    --foreground: 222 47% 11%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    
+    --primary: 210 77% 28%;
+    --primary-foreground: 0 0% 98%;
+    
+    --secondary: 44 100% 55%;
+    --secondary-foreground: 210 77% 28%;
+    
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    
+    --accent: 9 69% 49%;
+    --accent-foreground: 0 0% 98%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 222 47% 11%;
+    
+    --radius: 0.25rem;
+    
+    --chart-1: 210 77% 28%;
+    --chart-2: 44 100% 55%;
+    --chart-3: 9 69% 49%;
+    --chart-4: 217 33% 17%;
+    --chart-5: 215 16% 47%;
+  }
+  
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    overflow-x: hidden;
+  }
+  
+  .font-heading {
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .font-body {
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  .font-accent {
+    font-family: 'Bebas Neue', cursive;
+  }
+}
+
+@layer components {
+  .container {
+    @apply px-4 mx-auto;
+  }
+  
+  .section-heading {
+    @apply text-4xl md:text-5xl font-heading font-bold;
+  }
+  
+  .section-subheading {
+    @apply text-primary font-bold uppercase tracking-wider mb-2;
+  }
+  
+  .section-divider {
+    @apply w-20 h-1 bg-secondary mx-auto mt-6;
+  }
+}
