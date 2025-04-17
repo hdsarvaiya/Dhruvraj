@@ -1,5 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { 
+  MovingTruck, 
+  MovingConstruction, 
+  FloatingHardDrive, 
+  AnimatedBuilding, 
+  ConstructionWorker 
+} from "@/components/animations/HomePageAnimations";
 
 export default function HeroSection() {
   return (
@@ -13,12 +20,21 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-foreground opacity-50"></div>
       </div>
       
+      {/* Animated construction elements */}
+      <div className="relative z-10 w-full h-full pointer-events-none">
+        <MovingTruck />
+        <MovingConstruction />
+        <FloatingHardDrive />
+        <AnimatedBuilding />
+        <ConstructionWorker />
+      </div>
+      
       <div className="container z-10 mt-20">
         <motion.div 
           className="max-w-2xl text-white"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 3.5 }}
+          transition={{ duration: 0.8, delay: 7.2 }} // Delayed to appear after intro animation
         >
           <div className="inline-block px-4 py-1 bg-secondary text-primary font-bold mb-4 rounded-sm">
             TRUSTED CONSTRUCTION PARTNER
@@ -40,6 +56,27 @@ export default function HeroSection() {
           </div>
         </motion.div>
       </div>
+      
+      {/* Animated construction particles */}
+      {Array.from({ length: 8 }).map((_, i) => (
+        <motion.div
+          key={`particle-${i}`}
+          className="absolute w-2 h-2 rounded-full bg-yellow-400 z-10"
+          style={{
+            top: `${Math.random() * 80 + 10}%`,
+            left: `${Math.random() * 80 + 10}%`,
+          }}
+          animate={{
+            y: [0, Math.random() * -100 - 50],
+            opacity: [0, 0.8, 0],
+          }}
+          transition={{
+            duration: 3 + Math.random() * 2,
+            repeat: Infinity,
+            delay: Math.random() * 5,
+          }}
+        />
+      ))}
       
       <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-primary to-transparent h-32 opacity-70"></div>
     </section>
