@@ -95,7 +95,7 @@ export function AnimatedBuilding() {
 export function ConstructionWorker() {
   return (
     <motion.div
-      className="absolute bottom-10 left-10"
+      className="absolute bottom-10 left-10 hidden md:block" // Hide on mobile, only show on medium and larger screens
       initial={{ opacity: 0, scale: 0 }}
       animate={{
         opacity: 1,
